@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img src="{{person_id.image}}" alt="">
+<p>{{person_id.name}}</p>
+<p>{{person_id.description}}</p>
+<p>{{person_id.age}}</p>
+<p>{{person_id.abilities}}</p>
+<p>{{person_id.created_at}}</p>
+<ul>
+    {% for i in person_id.tekken_reviews.all %}
+    <li>
+        <h2>{{i.text}}</h2>
+    </li>
+    {% endfor %}
+</ul>
+<iframe src="{{person_id.video_url}}" frameborder="2" width="640" height="420"></iframe>
+<hr>
+        <button><a href="/persons_list/{{person_id.id}}/update/">Изменить персонажа"</a></button>
+        <button><a href="/persons_list/{{person_id.id}}/delete/">Удалить персонажа"</a></button>
+<hr>
+</body>
+</html>

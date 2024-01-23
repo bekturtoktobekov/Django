@@ -6,7 +6,9 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('blog.urls')),
-    path('', include('books.urls'))
+    path('', include('books.urls')),
+    path('', include('tekken_persons.urls')),
+    path('', include('tv_show.urls'))
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

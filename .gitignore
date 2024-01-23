@@ -1,6 +1,6 @@
 django
 .idea
-
+.env
 venv
 ### Python ###
 # Byte-compiled / optimized / DLL files

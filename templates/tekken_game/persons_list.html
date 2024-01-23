@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Persons_list</title>
+</head>
+<body>
+<h1>Персонажи теккена</h1>
+<ul>
+    <hr>
+        <button><a href="/create_person/">Добавить персонажа"</a></button>
+
+    {% for i in persons %}
+    <li>
+        <img src="{{i.image}}" alt="" width="400" height="400">
+        <h2>{{i.name}}</h2>
+        <p>{{i.spor}}</p>
+        <a href="/persons_list/{{i.id}}/">Подробнее</a>
+        <br>
+        ------------------------------------
+    </li>
+    {% endfor %}
+
+</ul>
+</body>
+</html>
