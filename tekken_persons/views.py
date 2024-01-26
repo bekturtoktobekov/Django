@@ -20,7 +20,7 @@ def create_person_view(request):
         form = forms.TekkenForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return HttpResponse('Успещно добавлен <a href="/">На главную</a>')
+            return HttpResponse('Успешно добавлен <a href="/">На главную</a>')
     else:
         form = forms.TekkenForm()
     return render(request, template_name='tekken_game/crud/create_person.html',
@@ -28,7 +28,7 @@ def create_person_view(request):
 
 
 #удаление
-def delete_person_view(request, id):
+def delete_person_view(id):
     person_id = get_object_or_404(models.PersonsGame, id=id)
     person_id.delete()
     return HttpResponse('Успешно добавлен <a href="/">На главную</a>')

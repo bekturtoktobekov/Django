@@ -5,9 +5,21 @@
     <title>Title</title>
 </head>
 <body>
-<h1>{{details.name}}</h1>
-<img src="{{details.image}}" alt="" width="400" height="400">
-<p>{{details.description}}</p>
-<p>{{details.created_at}}</p>
+    <h1>{{details.name}}</h1>
+    <img src="{{details.image}}" alt="" width="400" height="400">
+    <p>{{details.description}}</p>
+        <button><a href="/create_review/">Оставить отзыв</a></button>
+     <h1>Review List</h1>
+    <ul>
+        {% for i in reviews %}
+            <li>{{i.stars}} stars - {{i.text}}</li>
+        {% endfor %}
+    </ul>
+    <p>{{details.created_at}}</p>
+
+    <hr>
+        <button><a href="/movies_list/{{details.id}}/update">Редактировать данные фильма</a></button>
+        <button><a href="/movies_list/{{details.id}}/delete">Удалить фильм</a></button>
+    <hr>
 </body>
 </html>

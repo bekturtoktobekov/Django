@@ -20,3 +20,18 @@ class Movies(models.Model):
 
     def __str__(self):
         return self.name
+
+class Review(models.Model):
+    CHOICES = (
+        (1, '1 звезда'),
+        (2, '2 звезды'),
+        (3, '3 звезды'),
+        (4, '4 звезды'),
+        (5, '5 звезд'),
+    )
+    text = models.TextField(verbose_name='Введите комментарий')
+    stars = models.PositiveIntegerField(choices=CHOICES, default=5, verbose_name='Поставьте звезду')
+
+
+    def __str__(self):
+        return f'{self.stars}\n{self.text}'
