@@ -1,24 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% include 'films/header.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
 <h1>Фильмы</h1>
-<ul>
-    <hr>
-    <li>
-    <button><a href="/create_film/">Добавить фильм</a></button>
-    </li>
-</ul>
-{% for i in movies%}
-    <li>
-        <h1>{{i.name}}</h1>
-        <img src="{{i.image}}" alt="" width="400" height="400">
-        <br>
-        <a href="/movies_list/{{i.id}}/">Подробнее</a>
-    </li>
-{% endfor %}
-</body>
-</html>
+
+<div class="horizont-container">
+  {% for movie in movies %}
+    <div class="card" style="width: 18rem;">
+      <img src="{{ movie.image }}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{ movie.name }}</h5>
+        <p class="card-text"></p>
+        <a href="/movies_list/{{ movie.id }}/" class="btn btn-primary">Подробнее</a>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+{% include 'films/footer.html' %}

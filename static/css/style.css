@@ -1,0 +1,10 @@
+  .horizont-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .horizont {
+    display: flex;
+    gap: 20px;
+    text-align: center;
+  }

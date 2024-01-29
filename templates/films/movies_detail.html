@@ -1,17 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% include 'films/header.html' %}
     <h1>{{details.name}}</h1>
     <img src="{{details.image}}" alt="" width="400" height="400">
     <p>{{details.description}}</p>
         <button><a href="/create_review/">Оставить отзыв</a></button>
-     <h1>Review List</h1>
+    <h1>Review List</h1>
     <ul>
-        {% for i in reviews %}
+        {% for i in details.reviews.all %}
             <li>{{i.stars}} stars - {{i.text}}</li>
         {% endfor %}
     </ul>
@@ -21,5 +15,4 @@
         <button><a href="/movies_list/{{details.id}}/update">Редактировать данные фильма</a></button>
         <button><a href="/movies_list/{{details.id}}/delete">Удалить фильм</a></button>
     <hr>
-</body>
-</html>
+{% include 'films/footer.html' %}

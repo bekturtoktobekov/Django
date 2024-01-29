@@ -57,9 +57,3 @@ def add_review(request):
         form = forms.ReviewForm()
     return render(request, template_name='films/crud/add_review.html',
                   context={'form': form})
-
-def list_review(request):
-    if request.method == 'GET':
-        reviews = models.Review.objects.all()
-        return render(request, template_name='films/movies_detail.html',
-                      context={'reviews' : reviews})

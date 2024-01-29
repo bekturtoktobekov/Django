@@ -1,16 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Create Film</title>
-
-</head>
-<body>
-    <h1>Добавить фильм</h1>
-    <form action="/create_film/" method="POST" enctype="multipart/form-data">
+{% load static %}
+{% include 'films/header.html' %}
+<link rel="stylesheet" href="{% static 'css/create_film.css' %}">
+<form class="decor" action="/create_film/" method="POST" enctype="multipart/form-data">
+    <div class="form-left-decoration"></div>
+    <div class="form-right-decoration"></div>
+    <div class="circle"></div>
+    <div class="form-inner">
+        <h3>Добавить фильм</h3>
         {% csrf_token %}
         {{form.as_p}}
-        <button type="submit">Добавить</button>
-    </form>
-</body>
-</html>
+        <input type="submit" value="Отправить">
+    </div>
+</form>
+{% include 'films/footer.html' %}
