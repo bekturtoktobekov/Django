@@ -9,11 +9,11 @@
       <img src="{{ movie.image }}" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">{{ movie.name }}</h5>
-        <p class="card-text"></p>
+        <p>Reviews: {{ count }}</p>
+        <p>Rating: {{ rating }}</p>
         <a href="/movies_list/{{ movie.id }}/" class="btn btn-primary">Подробнее</a>
       </div>
     </div>
   {% endfor %}
 </div>
-
 {% include 'films/footer.html' %}

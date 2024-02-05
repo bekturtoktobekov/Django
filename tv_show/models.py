@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import Avg
 
 class Movies(models.Model):
     CATEGORIES = (
@@ -10,7 +11,7 @@ class Movies(models.Model):
         ('Фэнтези', 'Фэнтези'),
         ('Детектив', 'Детектив'),
         ('Триллер', 'Триллер'),
-        ('Документальный', 'Документальный'),
+        ('Документальный', 'Докуeментальный'),
     )
     name = models.CharField(max_length=20, verbose_name='Укажите название фильма')
     description = models.TextField(verbose_name='Укажите описание', blank=True, null=True)
@@ -18,8 +19,16 @@ class Movies(models.Model):
     genre = models.CharField(max_length=100, choices=CATEGORIES, verbose_name='Выберите жанр')
     created_at = models.DateTimeField(auto_now_add=True)
 
+    def review_count(self):
+        return self.reviews.count()
+
+    def average_rating(self):
+        return self.reviews.aggregate(Avg('stars'))['stars__avg'] or 0
+
     def __str__(self):
         return self.name
+
+
 
 # class Review(models.Model):
 #     CHOICES = (
