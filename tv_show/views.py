@@ -11,11 +11,6 @@ class MoviesListView(generic.ListView):
     def get_queryset(self):
         return self.model.objects.all()
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['review_count'] = [movie.review_count for movie in context['movies']]
-        context['average_rating'] = [movie.average_rating for movie in context['movies']]
-        return context
 
 # def movies_list(request):
 #     if request.method == 'GET':

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Список пользователей</h1>
+<ol>
+    {% for i in user %}
+    <li>
+        <h1>Login: {{i.username}}</h1>
+        <p>Email: {{i.email}}}</p>
+    </li>
+    {% endfor %}
+</ol>
+<form action="{% url 'persons:logout' %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <button type="submit">Выйти</button>
+</form>
+</body>
+</html>

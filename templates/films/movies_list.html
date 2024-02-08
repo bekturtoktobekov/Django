@@ -9,8 +9,8 @@
       <img src="{{ movie.image }}" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">{{ movie.name }}</h5>
-        <p>Reviews: {{ count }}</p>
-        <p>Rating: {{ rating }}</p>
+        <p>Reviews: {{ count.review_count }}</p>
+        <p>Rating: {{ rating.average_rating }}</p>
         <a href="/movies_list/{{ movie.id }}/" class="btn btn-primary">Подробнее</a>
       </div>
     </div>

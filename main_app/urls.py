@@ -8,7 +8,9 @@ urlpatterns = [
     path('', include('blog.urls')),
     path('', include('books.urls')),
     path('', include('tekken_persons.urls')),
-    path('', include('tv_show.urls'))
+    path('', include('tv_show.urls')),
+    path('', include('parser_app.urls')),
+    path('', include('custom_users.urls'))
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
