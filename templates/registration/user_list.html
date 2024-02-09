@@ -10,7 +10,14 @@
     {% for i in user %}
     <li>
         <h1>Login: {{i.username}}</h1>
-        <p>Email: {{i.email}}}</p>
+        <p>Name: {{i.first_name}}</p>
+        <p>Name: {{i.last_name}}</p>
+        <p>Email: {{i.email}}</p>
+        <p>Phone number: {{i.phone_number}}</p>
+        <p>Gender: {{i.gender}}</p>
+        <p>Country: {{i.country}}</p>
+        <p>Profile picture: <img src="{{i.profile_picture.url}}" alt=""></p>
+
     </li>
     {% endfor %}
 </ol>

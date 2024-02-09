@@ -1,12 +1,12 @@
-from django.shortcuts import render
 from django.contrib.auth.forms import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import reverse, reverse_lazy
 from django.views.generic import CreateView, ListView
+from . import models, forms
 
 class RegistrationView(CreateView):
-    form_class = UserCreationForm
+    form_class = forms.CustomUserCreationForm
     template_name = 'registration/register.html'
     success_url = '/login'
 
@@ -23,8 +23,8 @@ class OutLogoutView(LogoutView):
 
 class UserListView(ListView):
     template_name = 'registration/user_list.html'
-    model = User
+    model = models.CustomUser
     context_object_name = 'user'
 
     def get_queryset(self):
-        return User.objects.all()
+        return self.model.objects.all()
