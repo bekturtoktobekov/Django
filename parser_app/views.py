@@ -16,8 +16,3 @@ class ParserView(FormView):
         else:
             return super(ParserView).post(request,*args, **kwargs)
 
-class DataWebsiteView(FormView):
-    template_name = 'websitedata.html'
-    form_class = forms.ParserForm
-
-    def post(self, request, *args, **kwargs):
